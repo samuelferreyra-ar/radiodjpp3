@@ -2,7 +2,7 @@
 class SiteHeader extends HTMLElement {
   async connectedCallback() {
     try {
-      const res = await fetch('/componentes/header.html', { cache: 'no-store' });
+      const res = await fetch('componentes/header.html', { cache: 'no-store' });
       const html = await res.text();
       const tpl = document.createElement('template');
       tpl.innerHTML = html;
@@ -16,7 +16,7 @@ class SiteHeader extends HTMLElement {
 class SiteFooter extends HTMLElement {
   async connectedCallback() {
     try {
-      const res = await fetch('/componentes/footer.html', { cache: 'no-store' });
+      const res = await fetch('componentes/footer.html', { cache: 'no-store' });
       const html = await res.text();
       const tpl = document.createElement('template');
       tpl.innerHTML = html;
@@ -30,3 +30,4 @@ class SiteFooter extends HTMLElement {
 
 customElements.define('site-header', SiteHeader);
 customElements.define('site-footer', SiteFooter);
+
