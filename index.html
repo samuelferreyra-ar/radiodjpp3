@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RADIO DJ 101.5</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  
+<site-header></site-header>
+
+  <div class="frame">
+    <aside class="side-banner left" aria-label="Publicidad"><span>PUBLICIDAD</span></aside>
+    <aside class="side-banner right" aria-label="Publicidad"><span>PUBLICIDAD</span></aside>
+
+    <section class="hero" role="banner">
+      <div class="hero-inner">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/iipR5yUp36o?si=sumcmuU_RIMLwvGP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- index.html (dentro de .hero-inner, al lado del disco) -->
+        <div class="live-chat" aria-label="Chat en vivo">
+          <div class="chat-header">Chat en vivo</div>
+          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+          <form id="chatForm" class="chat-input-area">
+            <input id="chatInput" type="text" placeholder="Escribe un mensaje..." maxlength="400" required>
+            <button type="submit" title="Enviar">Enviar</button>
+          </form>
+          <div id="chatLoginHint" class="chat-hint" hidden>
+            Inicia sesión para participar en el chat.
+            <a href="login.html" class="chat-login-link">Iniciar sesión</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card calendario" aria-label="Calendario de programación">
+  <div class="cal-head">
+    <button class="cal-nav" id="calPrev" aria-label="Mes anterior">‹</button>
+    <h2 id="calTitle">Mes Año</h2>
+    <button class="cal-nav" id="calNext" aria-label="Mes siguiente">›</button>
+  </div>
+  <div class="cal-grid" id="calGrid" role="grid" aria-labelledby="calTitle">
+    <!-- se rellena con JS -->
+  </div>
+</section>
+
+<!-- Modal popup -->
+<div class="cal-modal" id="calModal" aria-hidden="true" role="dialog" aria-labelledby="calModalTitle">
+  <div class="cal-modal__dialog">
+    <div class="cal-modal__head">
+      <h3 id="calModalTitle">Programación del día</h3>
+      <button id="calModalClose" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="cal-modal__body" id="calModalBody">
+      <!-- items de programas -->
+    </div>
+  </div>
+</div>
+
+    <section id="noticias" class="news-section" aria-labelledby="news-title">
+      <h2 id="news-title">NOTICIAS LOCALES</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="thumb"><div class="avatar" aria-hidden="true"></div></div>
+          <div class="card-body">
+            <h3>Titular de noticia local aquí</h3>
+            <p>Descripción de la noticia local aquí. Este es un breve resumen del artículo que proporciona contexto.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"><div class="img2" aria-hidden="true"></div></div>
+          <div class="card-body">
+            <h3>Titular de noticia local aquí</h3>
+            <p>Descripción de la noticia local aquí. Este es un breve resumen del artículo que proporciona contexto.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"><div class="shape" aria-hidden="true"></div></div>
+          <div class="card-body">
+            <h3>Titular de noticia local aquí</h3>
+            <p>Descripción de la noticia local aquí. Este es un breve resumen del artículo que proporciona contexto.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+<site-footer></site-footer>
+
+  </div>
+
+  <!-- incluir en TODAS las páginas que usan auth/chat (al final del body) -->
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/chat.js"></script>
+<script type="module" src="js/componentes.js"></script>
+<script type="module" src="js/calendario.js"></script>
+
+</body>
+
+</html>
