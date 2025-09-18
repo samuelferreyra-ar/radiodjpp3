@@ -41,20 +41,7 @@
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap">
-    <div class="brand">RADIO DJ 101.5</div>
-    <nav aria-label="Principal">
-      <ul>
-        <li><a href="index.html">INICIO</a></li>
-        <li><a href="index.html#programacion">PROGRAMACIÓN</a></li>
-        <li><a href="index.html#noticias">NOTICIAS</a></li>
-        <li><a href="index.html#contacto">CONTACTO</a></li>
-        <li><a href="cuenta.html" class="account-btn">CUENTA</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<div id="header"></div>
 
 <div class="account-wrap">
   <h1>Mi cuenta</h1>
@@ -223,6 +210,9 @@
   </section>
 </div>
 
+<div id="footer"></div>
+
+<script type="module" src="js/componentes.js"></script>
 <script type="module">
   import { app, auth, db, observeAuth } from "./js/firebase.js"; // tu inicialización Firebase
   import {

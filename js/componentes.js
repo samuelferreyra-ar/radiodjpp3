@@ -1,32 +1,18 @@
-// /js/componentes.js
-class SiteHeader extends HTMLElement {
-  async connectedCallback() {
-    try {
-      const res = await fetch('header.html', { cache: 'no-store' });
-      const html = await res.text();
-      const tpl = document.createElement('template');
-      tpl.innerHTML = html;
-      this.replaceWith(tpl.content.cloneNode(true));
-    } catch (e) {
-      console.error('No pude cargar header.html', e);
-    }
+// Definición global para poder usarla en cualquier página
+window.includeHtml = async function(id, file, callback) {
+  try {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error(`No se pudo cargar ${file}`);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+    if (callback) callback(); // Ejecuta código luego de cargar el fragmento
+  } catch (err) {
+    console.error("Error en includeHtml:", err);
   }
-}
+};
 
-class SiteFooter extends HTMLElement {
-  async connectedCallback() {
-    try {
-      const res = await fetch('footer.html', { cache: 'no-store' });
-      const html = await res.text();
-      const tpl = document.createElement('template');
-      tpl.innerHTML = html;
-      // 👇 Reemplaza <site-footer> por el <footer> real
-      this.replaceWith(tpl.content.cloneNode(true));
-    } catch (e) {
-      console.error('No pude cargar footer.html', e);
-    }
-  }
-}
-
-customElements.define('site-header', SiteHeader);
-customElements.define('site-footer', SiteFooter);
+// Carga por defecto header y footer (puedes comentar/ajustar según la página)
+window.addEventListener("DOMContentLoaded", () => {
+  includeHtml("header", "header.html");
+  includeHtml("footer", "footer.html");
+});

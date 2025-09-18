@@ -9,7 +9,7 @@
 </head>
 <body>
   
-<site-header></site-header>
+<div id="header"></div>
 
   <div class="frame">
     <aside class="side-banner left" aria-label="Publicidad"><span>PUBLICIDAD</span></aside>
@@ -85,14 +85,15 @@
       </div>
     </section>
 
-<site-footer></site-footer>
+<div id="footer"></div>
 
   </div>
 
+<script type="module" src="js/componentes.js"></script>
   <!-- incluir en TODAS las páginas que usan auth/chat (al final del body) -->
 <script type="module" src="js/firebase.js"></script>
 <script type="module" src="js/chat.js"></script>
-<script type="module" src="js/componentes.js"></script>
+<!-- <script type="module" src="js/componentes.js"></script>-->
 <script type="module" src="js/calendario.js"></script>
 
 </body>
